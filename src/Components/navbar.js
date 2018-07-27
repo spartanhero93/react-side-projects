@@ -10,6 +10,7 @@ const Nav = props => {
         <Link to='/'>Home</Link>
         <Link to='/menu'>Menu Component</Link>
         <Link to='/tooltip'>Tooltip Component</Link>
+        <Link to='/timer'>Timer Component</Link>
       </ul>
     </Navbar>
   )
@@ -44,6 +45,7 @@ const Navbar = styled.nav`
       flex-direction: column;
       margin: 0 1rem;
       font-size: 1.5rem;
+      padding-bottom: 1rem;
     }
   }
 `

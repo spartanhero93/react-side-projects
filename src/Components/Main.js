@@ -1,13 +1,14 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Nav from './navbar'
 
 // <=== Routes ===>//
 import { Welcome } from './Welcome'
 import Menu from './Menu'
-import Tooltip from './Tooltip'
+import ToolTip from './ToolTip'
+import Timer from './Timer'
 
 class Main extends Component {
   render () {
@@ -18,7 +19,8 @@ class Main extends Component {
           <Container>
             <Route exact path='/' component={Welcome} />
             <Route path='/menu' component={Menu} />
-            <Route path='/tooltip' component={Tooltip} />
+            <Route path='/tooltip' component={ToolTip} />
+            <Route path='/timer' component={Timer} />
           </Container>
         </Fragment>
       </Router>
