@@ -10,12 +10,10 @@ class TimerWrapper extends Component {
   startTimer = timeLeft => {
     clearInterval(this.state.timer)
     let timer = setInterval(() => {
-      console.log('2: Inside of setInterval')
       let timeLeft = this.state.timeLeft - 1
       if (timeLeft == 0) clearInterval(timer)
       this.setState({ timeLeft })
     }, 1000)
-    console.log('1: After setInterval')
     return this.setState({ timeLeft, timer })
   }
 
@@ -28,27 +26,27 @@ class TimerWrapper extends Component {
       <React.Fragment>
         <h1>Timer</h1>
         <Wrapper>
-          <TimerBtn
+          <Button
             time={5}
             startTimer={this.startTimer}
-            onClick={this.handleClick}
+            onClick={this.startTimer}
           >
             5 seconds
-          </TimerBtn>
-          <TimerBtn
+          </Button>
+          <Button
             time={10}
             startTimer={this.startTimer}
-            onClick={this.handleClick}
+            onClick={this.startTimer}
           >
             10 seconds
-          </TimerBtn>
-          <TimerBtn
+          </Button>
+          <Button
             time={15}
             startTimer={this.startTimer}
-            onClick={this.handleClick}
+            onClick={this.startTimer}
           >
             15 seconds
-          </TimerBtn>
+          </Button>
         </Wrapper>
 
         <Timer timeLeft={this.state.timeLeft} />
@@ -57,8 +55,23 @@ class TimerWrapper extends Component {
   }
 }
 
+class Button extends Component {
+  startTimer = event => {
+    return this.props.startTimer(this.props.time)
+  }
+
+  render () {
+    return (
+      <TimerBtn onClick={this.startTimer}>
+        {this.props.time} seconds
+      </TimerBtn>
+    )
+  }
+}
+
 const Timer = props => {
-  return <h1>Time Left: {this.props.timeLeft}</h1>
+  if (props.timeLeft == null || props.timeLeft == 0) return <h1>Time: 0</h1>
+  return <h1>Time Left: {props.timeLeft}</h1>
 }
 
 const Wrapper = styled.div`

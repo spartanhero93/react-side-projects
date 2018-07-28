@@ -8,9 +8,9 @@ const Nav = props => {
       <h3>Mini Projects</h3>
       <ul>
         <Link to='/'>Home</Link>
-        <Link to='/menu'>Menu Component</Link>
-        <Link to='/tooltip'>Tooltip Component</Link>
-        <Link to='/timer'>Timer Component</Link>
+        <Link to='/menu'>Menu</Link>
+        <Link to='/tooltip'>Tooltip</Link>
+        <Link to='/timer'>Timer</Link>
       </ul>
     </Navbar>
   )
